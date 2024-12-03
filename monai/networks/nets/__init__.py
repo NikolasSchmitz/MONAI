@@ -53,6 +53,26 @@ from .fullyconnectednet import FullyConnectedNet, VarFullyConnectedNet
 from .generator import Generator
 from .highresnet import HighResBlock, HighResNet
 from .hovernet import Hovernet, HoVernet, HoVerNet, HoverNet
+from .masked_autoencoder_vit import MaskedAutoEncoderViT
+from .mednext import (
+    MedNeXt,
+    MedNext,
+    MedNextB,
+    MedNeXtB,
+    MedNextBase,
+    MedNextL,
+    MedNeXtL,
+    MedNeXtLarge,
+    MedNextLarge,
+    MedNextM,
+    MedNeXtM,
+    MedNeXtMedium,
+    MedNextMedium,
+    MedNextS,
+    MedNeXtS,
+    MedNeXtSmall,
+    MedNextSmall,
+)
 from .milmodel import MILModel
 from .netadapter import NetAdapter
 from .patchgan_discriminator import MultiScalePatchDiscriminator, PatchDiscriminator
@@ -76,7 +96,7 @@ from .resnet import (
     resnet200,
 )
 from .segresnet import SegResNet, SegResNetVAE
-from .segresnet_ds import SegResNetDS
+from .segresnet_ds import SegResNetDS, SegResNetDS2
 from .senet import (
     SENet,
     SEnet,
@@ -118,6 +138,7 @@ from .transformer import DecoderOnlyTransformer
 from .unet import UNet, Unet
 from .unetr import UNETR
 from .varautoencoder import VarAutoEncoder
+from .vista3d import VISTA3D, vista3d132
 from .vit import ViT
 from .vitautoenc import ViTAutoEnc
 from .vnet import VNet
