@@ -24,7 +24,7 @@ from monai.apps.mmars import MODEL_DESC, load_from_mmar
 from monai.bundle import download, load
 from monai.config import print_debug_info
 from monai.networks.utils import copy_model_state
-from tests.utils import assert_allclose, skip_if_downloading_fails, skip_if_quick, skip_if_windows
+from tests.test_utils import assert_allclose, skip_if_downloading_fails, skip_if_quick, skip_if_windows
 
 TEST_CASE_NGC_1 = [
     "spleen_ct_segmentation",
@@ -70,7 +70,6 @@ TESTCASE_WEIGHTS = {
 
 @skip_if_windows
 class TestNgcBundleDownload(unittest.TestCase):
-
     @parameterized.expand([TEST_CASE_NGC_1, TEST_CASE_NGC_2])
     @skip_if_quick
     def test_ngc_download_bundle(self, bundle_name, version, remove_prefix, download_name, file_path, hash_val):
@@ -84,12 +83,7 @@ class TestNgcBundleDownload(unittest.TestCase):
                 self.assertTrue(check_hash(filepath=full_file_path, val=hash_val))
 
                 model = load(
-                    name=bundle_name,
-                    source="ngc",
-                    version=version,
-                    bundle_dir=tempdir,
-                    remove_prefix=remove_prefix,
-                    return_state_dict=False,
+                    name=bundle_name, source="ngc", version=version, bundle_dir=tempdir, remove_prefix=remove_prefix
                 )
                 assert_allclose(
                     model.state_dict()[TESTCASE_WEIGHTS["key"]],
@@ -102,7 +96,6 @@ class TestNgcBundleDownload(unittest.TestCase):
 
 @unittest.skip("deprecating mmar tests")
 class TestAllDownloadingMMAR(unittest.TestCase):
-
     def setUp(self):
         print_debug_info()
         self.test_dir = "./"
